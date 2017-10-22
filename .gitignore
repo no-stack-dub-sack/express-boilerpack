@@ -1,1 +1,10 @@
-node_modules
+# dependencies
+/node_modules
+
+# production
+/dist
+production-server.js
+
+# misc
+*.log
+.DS_Store
