@@ -1,0 +1,42 @@
+{
+  "name": "express-boilerpack",
+  "version": "1.0.0",
+  "author": "Peter A. Weinberg",
+  "license": "ISC",
+  "description": "simple express / webpack boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "start": "NODE_ENV=dev babel-node server.js",
+    "build:server": "babel server.js -o production-server.js",
+    "build:client": "webpack -p --config webpack.config.prod.js --progress",
+    "build": "better-npm-run build",
+    "clean": "rimraf dist/* && rimraf production-server.js",
+    "prod": "NODE_ENV=production node production-server.js"
+  },
+  "betterScripts": {
+    "build": {
+      "command": "npm run clean && npm run build:server && npm run build:client",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "css-loader": "^0.28.7",
+    "express": "^4.16.2",
+    "html-webpack-plugin": "^2.30.1",
+    "style-loader": "^0.19.0",
+    "webpack-dev-middleware": "^1.12.0",
+    "webpack-hot-middleware": "^2.20.0"
+  },
+  "dependencies": {
+    "better-npm-run": "^0.1.0",
+    "rimraf": "^2.6.2",
+    "webpack": "^3.8.1"
+  }
+}
